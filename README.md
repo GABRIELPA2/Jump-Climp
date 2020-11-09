@@ -4,7 +4,7 @@
 
 ## Alunos:
 
-#### Gabriel Paiva De Almeida ()\\\
+#### Gabriel Paiva De Almeida
 
 #### Rodrigo De Lima Azeredo
 
