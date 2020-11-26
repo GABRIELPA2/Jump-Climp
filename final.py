@@ -4,7 +4,7 @@ UP= 0
 RIGHT= 1
 DOWN= 2
 LEFT= 3
-
+icon= pygame.image.load('icon.jpg')
 def posicaocomida():
     x= random.randint(0,590)
     y= random.randint(0,590)
@@ -18,16 +18,17 @@ largura= 800
 tela= pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Jogo final')
 comida= pygame.Surface((10,10))
-comida.fill((0,0,255))
+comida.fill((255,0,0))
 lugar_comida= posicaocomida()
 cobra= [(200,200), (210,200), (220,200)]
 cobrinha= pygame.Surface((10,10))
 cobrinha.fill((0,255,0))
 direcao= LEFT
 Game= True
+a=10
 clock= pygame.time.Clock()
 while Game:
-    clock.tick(20)
+    clock.tick(a)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -43,6 +44,7 @@ while Game:
     if colisao(cobra[0],lugar_comida):
         lugar_comida= posicaocomida()
         cobra.append((0,0))
+        a+=1
         
     if direcao  == UP:
         cobra[0]= (cobra[0] [0], cobra[0] [1] -10)
@@ -68,8 +70,10 @@ while Game:
         Game= False
         
     tela.fill((0,0,0))
+    tela.blit(icon,(0,0))
     tela.blit(comida, lugar_comida)
     for posicao in cobra:
         tela.blit(cobrinha,posicao)
     pygame.display.update()
-print('Fim')        
+print('Fim')
+###Baseado em alguma referencia de videos de youtube e codigos da net        
